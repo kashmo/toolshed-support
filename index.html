@@ -102,7 +102,26 @@
 
     <section class="privacy section" id="privacy">
       <div class="shell privacy-grid">
-        <div class="privacy-mark reveal"><div class="shield">TW</div></div>
+        <div class="privacy-mark reveal">
+          <svg width="270" height="300" viewBox="0 0 270 300" role="img" aria-label="ToolWise bronze security shield">
+            <defs>
+              <linearGradient id="shieldOuter" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f2c05c"/><stop offset="0.32" stop-color="#c57a31"/><stop offset="0.68" stop-color="#6b3e22"/><stop offset="1" stop-color="#e19a47"/></linearGradient>
+              <linearGradient id="shieldInner" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5a3425"/><stop offset="0.55" stop-color="#2e211f"/><stop offset="1" stop-color="#17151a"/></linearGradient>
+              <linearGradient id="shieldText" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffd27a"/><stop offset="0.45" stop-color="#c97b35"/><stop offset="1" stop-color="#7a4324"/></linearGradient>
+              <filter id="shieldShadow" x="-40%" y="-40%" width="180%" height="190%"><feDropShadow dx="0" dy="22" stdDeviation="18" flood-color="#000" flood-opacity=".55"/></filter>
+              <filter id="shieldGlow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="5" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            </defs>
+            <g filter="url(#shieldShadow)">
+              <path d="M135 12 236 58 221 205 135 286 49 205 34 58Z" fill="url(#shieldOuter)" stroke="#f6c66b" stroke-width="3"/>
+              <path d="M135 31 217 68 204 193 135 260 66 193 53 68Z" fill="#151217" stroke="#5c3826" stroke-width="8"/>
+              <path d="M135 43 205 75 194 184 135 242 76 184 65 75Z" fill="url(#shieldInner)" stroke="#c47735" stroke-width="2"/>
+              <path d="M135 55 191 81 183 175 135 223 87 175 79 81Z" fill="none" stroke="#f0ad55" stroke-opacity=".28" stroke-width="2"/>
+              <path d="M79 81 135 55 191 81" fill="none" stroke="#ffd079" stroke-opacity=".75" stroke-width="3" filter="url(#shieldGlow)"/>
+              <text x="135" y="160" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif" font-size="70" font-weight="900" letter-spacing="-5" fill="url(#shieldText)" stroke="#2b170d" stroke-width="2" paint-order="stroke fill">TW</text>
+              <path d="M94 182h82" stroke="#c67935" stroke-opacity=".42" stroke-width="2"/>
+            </g>
+          </svg>
+        </div>
         <div class="reveal"><div class="kicker">Privacy by design</div><h2>Your tools are your business.</h2><p>ToolWise does not require a separate ToolWise account. Your inventory and photos sync through your personal iCloud account, and your data is not sold.</p><div class="privacy-points"><span>Native iPhone app</span><span>iCloud + CloudKit sync</span><span>No advertising profile</span></div><a class="text-link" href="privacy.html">Read the privacy policy →</a></div>
       </div>
     </section>

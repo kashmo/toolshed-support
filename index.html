@@ -1,255 +1,117 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ToolWise — Know what you own before you buy another one</title>
-  <meta name="description" content="ToolWise helps homeowners catalog their tools and answer 'do I already own this?' in seconds. iPhone app in TestFlight beta.">
-  <style>
-    :root {
-      --bg-top: #3A3540;
-      --bg-mid: #6B4530;
-      --bg-bot: #B87840;
-      --card: rgba(122, 78, 26, 0.18);
-      --card-border: rgba(255, 255, 255, 0.10);
-      --text-primary: #F5F0E8;
-      --text-secondary: #9A9080;
-      --accent: #E8A020;
-      --accent-secondary: #C4711A;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html, body {
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text",
-                   "Helvetica Neue", Arial, sans-serif;
-      color: var(--text-primary);
-      background: linear-gradient(to bottom,
-                    var(--bg-top), var(--bg-mid), var(--bg-bot));
-      background-attachment: fixed;
-      min-height: 100vh;
-      line-height: 1.55;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background: radial-gradient(ellipse at center,
-                    transparent 50%, rgba(0, 0, 0, 0.32) 100%);
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    main {
-      position: relative;
-      z-index: 1;
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 56px 24px 72px;
-    }
-
-    .hero { text-align: center; margin-bottom: 44px; }
-
-    .app-title {
-      font-size: 60px;
-      font-weight: 800;
-      letter-spacing: -0.6px;
-      margin-bottom: 16px;
-      background: linear-gradient(135deg,
-                    var(--accent), var(--accent-secondary));
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .tagline {
-      font-size: 20px;
-      color: var(--text-primary);
-      font-weight: 500;
-      margin-bottom: 12px;
-    }
-
-    .subtagline {
-      font-size: 15px;
-      color: var(--text-secondary);
-      max-width: 520px;
-      margin: 0 auto;
-    }
-
-    .card {
-      background: var(--card);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid var(--card-border);
-      border-radius: 16px;
-      padding: 24px 26px;
-      margin-bottom: 18px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
-    }
-
-    .card h2 {
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--accent);
-      letter-spacing: 1.4px;
-      text-transform: uppercase;
-      margin-bottom: 14px;
-    }
-
-    .card p { color: var(--text-primary); font-size: 15.5px; }
-
-    .highlights { list-style: none; }
-
-    .highlights li {
-      padding: 14px 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-      display: flex;
-      gap: 14px;
-      align-items: flex-start;
-    }
-
-    .highlights li:last-child { border-bottom: none; }
-
-    .highlights .icon {
-      color: var(--accent);
-      font-size: 14px;
-      flex-shrink: 0;
-      margin-top: 4px;
-    }
-
-    .highlights .label {
-      font-weight: 600;
-      color: var(--text-primary);
-      display: block;
-      margin-bottom: 3px;
-      font-size: 15.5px;
-    }
-
-    .highlights .description {
-      color: var(--text-secondary);
-      font-size: 14px;
-    }
-
-    .footer-links {
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-      margin-top: 32px;
-      flex-wrap: wrap;
-    }
-
-    .footer-links a {
-      color: var(--accent);
-      text-decoration: none;
-      font-size: 15px;
-      font-weight: 500;
-      padding: 12px 22px;
-      border: 1px solid rgba(232, 160, 32, 0.38);
-      border-radius: 12px;
-      transition: background 0.2s ease;
-    }
-
-    .footer-links a:hover { background: rgba(232, 160, 32, 0.10); }
-
-    .footnote {
-      text-align: center;
-      color: var(--text-secondary);
-      font-size: 12.5px;
-      margin-top: 44px;
-    }
-
-    @media (max-width: 480px) {
-      .app-title { font-size: 46px; }
-      .tagline { font-size: 17px; }
-      main { padding: 40px 18px 56px; }
-    }
-  </style>
+  <meta name="description" content="ToolWise is a native iPhone app that helps homeowners catalog, find, and understand their tool collection. Currently expanding its private TestFlight beta.">
+  <meta name="theme-color" content="#17151a">
+  <meta property="og:title" content="ToolWise — Your tools, organized">
+  <meta property="og:description" content="Catalog your tools once. Then check what you own in seconds.">
+  <meta property="og:image" content="assets/toolwise-icon.png">
+  <link rel="icon" href="assets/toolwise-icon.png">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="script.js"></script>
 </head>
 <body>
-  <main>
-    <header class="hero">
-      <h1 class="app-title">ToolWise</h1>
-      <p class="tagline">Know what you own before you buy another one.</p>
-      <p class="subtagline">
-        A native iPhone app for homeowners. Catalog your tools once —
-        then answer "do I already own this?" in seconds, whether you're
-        standing in the store aisle, at a job site, or in the garage.
-      </p>
-    </header>
-
-    <section class="card">
-      <h2>Highlights</h2>
-      <ul class="highlights">
-        <li>
-          <span class="icon">◆</span>
-          <div>
-            <span class="label">Three fast ways to add a tool</span>
-            <span class="description">Scan a barcode, speak the tool name aloud, or type it in — whichever fits the moment.</span>
-          </div>
-        </li>
-        <li>
-          <span class="icon">◆</span>
-          <div>
-            <span class="label">UPC lookup baked in</span>
-            <span class="description">Scanning fetches the product name, brand, model, category, and even the product image automatically.</span>
-          </div>
-        </li>
-        <li>
-          <span class="icon">◆</span>
-          <div>
-            <span class="label">Wishlist for tools you're considering</span>
-            <span class="description">Not ready to buy? Save it for later. When you actually buy it, one tap moves it to your inventory.</span>
-          </div>
-        </li>
-        <li>
-          <span class="icon">◆</span>
-          <div>
-            <span class="label">Battery + package tracking</span>
-            <span class="description">Track cordless battery platforms (Milwaukee M18, DeWalt 20V, Stihl AK, EGO 56V, and many more) and package sizes for bulk fasteners.</span>
-          </div>
-        </li>
-        <li>
-          <span class="icon">◆</span>
-          <div>
-            <span class="label">Custom brands and locations</span>
-            <span class="description">Add brands and locations the app doesn't already know about. Custom entries persist and appear in "Recent" for one-tap access.</span>
-          </div>
-        </li>
-        <li>
-          <span class="icon">◆</span>
-          <div>
-            <span class="label">iCloud sync</span>
-            <span class="description">Your inventory (and photos) follow you across every Apple device signed into your iCloud account.</span>
-          </div>
-        </li>
-        <li>
-          <span class="icon">◆</span>
-          <div>
-            <span class="label">iPhone only, iOS 17+</span>
-            <span class="description">Built native. No accounts, no subscriptions, no data sold.</span>
-          </div>
-        </li>
-      </ul>
-    </section>
-
-    <section class="card">
-      <h2>Currently in Beta</h2>
-      <p>
-        ToolWise is in closed TestFlight testing with a small group of
-        friends and family. Public release will follow once the feedback
-        loop wraps up. If you were invited to test, thank you — your
-        feedback is shaping every build.
-      </p>
-    </section>
-
-    <nav class="footer-links">
-      <a href="privacy.html">Privacy Policy</a>
-      <a href="support.html">Support &amp; Feedback</a>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="site-header" id="top">
+    <nav class="nav shell" aria-label="Primary navigation">
+      <a class="brand" href="#top" aria-label="ToolWise home">
+        <img src="assets/toolwise-icon.png" alt="" width="40" height="40">
+        <span>ToolWise</span>
+      </a>
+      <div class="nav-links">
+        <a href="#how">How it works</a><a href="#features">Features</a><a href="#privacy">Privacy</a>
+      </div>
+      <a class="beta-pill" href="https://docs.google.com/forms/d/e/1FAIpQLSdd0NdLIpeUkWwcLhqzC_xa2YbJL9dh-ZySo57hZsVUqNFGsw/viewform?usp=publish-editor" target="_blank" rel="noopener">Request beta access</a>
     </nav>
+  </header>
 
-    <p class="footnote">© 2026 Kashan Akins</p>
+  <main id="main">
+    <section class="hero shell">
+      <div class="hero-copy reveal">
+        <div class="eyebrow"><span></span> Private TestFlight beta</div>
+        <h1>Know what you own <em>before</em> you buy another one.</h1>
+        <p class="hero-lede">Catalog your tools once. Then search, scan, or speak to check your inventory in seconds—at the store, on a job, or in the garage.</p>
+        <div class="cta-row">
+          <a class="button primary" href="https://docs.google.com/forms/d/e/1FAIpQLSdd0NdLIpeUkWwcLhqzC_xa2YbJL9dh-ZySo57hZsVUqNFGsw/viewform?usp=publish-editor" target="_blank" rel="noopener">Request Beta Access <span>↗</span></a>
+          <a class="button secondary" href="#how">See How It Works <span>↓</span></a>
+        </div>
+        <div class="trust-row"><span>No ToolWise account</span><span>iCloud sync</span><span>No data sold</span></div>
+      </div>
+      <div class="hero-visual reveal">
+        <div class="measurement top">12″</div><div class="measurement side">90°</div>
+        <div class="phone hero-phone"><div class="phone-notch"></div><img src="assets/screen-50.webp" alt="ToolWise home screen showing search, scan, voice entry, locations, and recently added tools"></div>
+        <div class="floating-card card-search"><b>Fast check</b><span>Search, scan, or speak</span></div>
+        <div class="floating-card card-location"><b>Found it</b><span>Garage · Workshop</span></div>
+      </div>
+    </section>
+
+    <section class="numbers shell reveal" aria-label="ToolWise benefits">
+      <div><strong>&lt; 30 min</strong><span>to catalog a typical collection</span></div>
+      <div><strong>&lt; 10 sec</strong><span>to answer “Do I own this?”</span></div>
+      <div><strong>265+</strong><span>recognized tool brands</span></div>
+      <div><strong>30+</strong><span>battery platforms</span></div>
+    </section>
+
+    <section class="story section shell" id="how">
+      <div class="section-heading reveal"><div class="kicker">The core workflow</div><h2>One question. Three quick steps.</h2><p>ToolWise is built around the moment you need an answer—not around maintaining a complicated database.</p></div>
+      <div class="steps">
+        <article class="step reveal"><span class="step-number">01</span><div class="mini-phone"><img src="assets/screen-50.webp" alt="ToolWise home screen"></div><h3>Search, scan, or speak</h3><p>Type a name, scan a barcode, or say what you are looking for.</p></article>
+        <article class="step reveal"><span class="step-number">02</span><div class="mini-phone"><img src="assets/screen-51.webp" alt="ToolWise search results for wrench"></div><h3>Confirm what you own</h3><p>See matching tools, quantities, photos, and storage locations immediately.</p></article>
+        <article class="step reveal"><span class="step-number">03</span><div class="mini-phone"><img src="assets/screen-53.webp" alt="ToolWise location view"></div><h3>Know where it is</h3><p>Jump into the garage, basement, workshop, shed, or any custom location.</p></article>
+      </div>
+    </section>
+
+    <section class="showcase section" id="features">
+      <div class="shell showcase-grid">
+        <div class="showcase-copy reveal">
+          <div class="kicker">Explore ToolWise</div><h2>A tool inventory that does more than keep a list.</h2>
+          <div class="feature-tabs" role="tablist" aria-label="ToolWise feature screenshots">
+            <button class="feature-tab active" data-screen="assets/screen-54.webp" data-alt="Barcode scan results prefilled in ToolWise" data-kicker="Scan to prefill" data-title="Turn a barcode into a ready-to-save tool." data-copy="ToolWise captures the UPC and pre-fills useful details such as name, brand, category, model, and product image when available." aria-selected="true"><span>01</span> Barcode lookup</button>
+            <button class="feature-tab" data-screen="assets/screen-52.webp" data-alt="Detailed tool record in ToolWise" data-kicker="A complete record" data-title="Keep the details that actually matter." data-copy="Store the photo, brand, model, category, location, quantity, condition, battery platform, serial number, and more."><span>02</span> Tool details</button>
+            <button class="feature-tab" data-screen="assets/screen-53.webp" data-alt="Tools organized by storage location" data-kicker="Find by location" data-title="See every place your tools live." data-copy="Browse the garage, basement, workshop, shed, vehicle, storage unit, or locations you create yourself."><span>03</span> Locations</button>
+            <button class="feature-tab" data-screen="assets/screen-55.webp" data-alt="Wishlist, inventory statistics, and insights in ToolWise" data-kicker="A smarter collection" data-title="Plan purchases and improve your inventory." data-copy="Keep a wishlist, understand your collection at a glance, and surface tools missing photos, brands, or locations."><span>04</span> Insights + wishlist</button>
+          </div>
+          <div class="dynamic-copy" aria-live="polite"><div id="feature-kicker" class="kicker">Scan to prefill</div><h3 id="feature-title">Turn a barcode into a ready-to-save tool.</h3><p id="feature-copy">ToolWise captures the UPC and pre-fills useful details such as name, brand, category, model, and product image when available.</p></div>
+        </div>
+        <div class="showcase-phone-wrap reveal"><div class="phone showcase-phone"><div class="phone-notch"></div><img id="feature-screen" src="assets/screen-54.webp" alt="Barcode scan results prefilled in ToolWise"></div></div>
+      </div>
+    </section>
+
+    <section class="problem section shell">
+      <div class="problem-panel reveal">
+        <div><div class="kicker">Built for real homes</div><h2>Your tools are everywhere.<br>Your inventory should not be.</h2><p>ToolWise gives every tool a home in your pocket, so you stop buying duplicates and stop searching places where the tool is not.</p></div>
+        <div class="pain-list"><div><span>01</span><p>Forgot whether you already own it?</p></div><div><span>02</span><p>Know you have it, but not where?</p></div><div><span>03</span><p>Losing track of batteries and accessories?</p></div></div>
+      </div>
+    </section>
+
+    <section class="feature-grid-section section shell">
+      <div class="section-heading reveal"><div class="kicker">Designed around the homeowner</div><h2>Fast when it should be. Detailed when you need it.</h2></div>
+      <div class="feature-grid">
+        <article class="feature-card reveal"><div class="feature-icon">⌁</div><h3>Scan the box</h3><p>Capture a UPC and automatically retrieve available product details and imagery.</p></article>
+        <article class="feature-card reveal"><div class="feature-icon">◉</div><h3>Just say the name</h3><p>Speak a tool name and let ToolWise interpret the likely brand, model, and category.</p></article>
+        <article class="feature-card reveal"><div class="feature-icon">⌂</div><h3>Find it by location</h3><p>See what is stored in each area of your home, workshop, vehicle, or storage space.</p></article>
+        <article class="feature-card reveal"><div class="feature-icon">◇</div><h3>Keep a smarter wishlist</h3><p>Save tools you are considering, then move them into inventory when purchased.</p></article>
+        <article class="feature-card reveal"><div class="feature-icon">⚡</div><h3>Track the useful details</h3><p>Record battery platform, capacity, package size, condition, quantity, and serial number.</p></article>
+        <article class="feature-card reveal"><div class="feature-icon">✓</div><h3>Improve your inventory</h3><p>Surface possible duplicates and items missing photos, brands, or storage locations.</p></article>
+      </div>
+    </section>
+
+    <section class="privacy section" id="privacy">
+      <div class="shell privacy-grid">
+        <div class="privacy-mark reveal"><div class="shield">TW</div></div>
+        <div class="reveal"><div class="kicker">Privacy by design</div><h2>Your tools are your business.</h2><p>ToolWise does not require a separate ToolWise account. Your inventory and photos sync through your personal iCloud account, and your data is not sold.</p><div class="privacy-points"><span>Native iPhone app</span><span>iCloud + CloudKit sync</span><span>No advertising profile</span></div><a class="text-link" href="privacy.html">Read the privacy policy →</a></div>
+      </div>
+    </section>
+
+    <section class="beta section shell">
+      <div class="beta-panel reveal"><img src="assets/toolwise-icon.png" alt="ToolWise app icon"><div><div class="eyebrow"><span></span> Expanding the tester group</div><h2>Built. Working. Being refined.</h2><p>ToolWise is currently in private TestFlight beta. We’re inviting more homeowners who regularly use, organize, or purchase tools. Beta access is currently free; pricing will be introduced at public launch.</p><div class="cta-row"><a class="button primary" href="https://docs.google.com/forms/d/e/1FAIpQLSdd0NdLIpeUkWwcLhqzC_xa2YbJL9dh-ZySo57hZsVUqNFGsw/viewform?usp=publish-editor" target="_blank" rel="noopener">Request Beta Access <span>↗</span></a><a class="button secondary" href="mailto:kashanakins@gmail.com?subject=ToolWise%20Feedback">Send Feedback</a></div></div></div>
+    </section>
   </main>
+
+  <footer class="footer shell"><div class="footer-brand"><img src="assets/toolwise-icon.png" alt="" width="38"><div><strong>ToolWise</strong><span>Designed and built in Michigan.</span></div></div><div class="footer-links"><a href="privacy.html">Privacy</a><a href="support.html">Support</a><a href="mailto:kashanakins@gmail.com">Contact</a></div><p>© 2026 Kashan Akins</p></footer>
 </body>
 </html>

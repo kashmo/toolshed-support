@@ -32,3 +32,24 @@
 .feature-grid .feature-card.reveal:nth-child(6){transition-delay:.2s}
 .numbers strong{font-variant-numeric:tabular-nums}
 @media(prefers-reduced-motion:reduce){.numbers div,.feature-grid .feature-card.reveal{opacity:1;transform:none;transition:none}.steps .step.reveal,.feature-grid .feature-card.reveal,.numbers.visible div{transition-delay:0s}}
+
+/* ---- Problem section: oversized type moment ---- */
+.problem .problem-panel{background:none;border:0;border-radius:0;box-shadow:none;padding:0;display:block}
+.problem-panel.reveal{transform:none}
+.problem-head{margin-bottom:64px}
+.problem h2.mega{font-size:clamp(33px,8.1vw,116px);line-height:.93;letter-spacing:-.055em;font-weight:850;text-transform:uppercase;margin:20px 0 0;max-width:15ch}
+.mega .line{display:block;overflow:hidden;padding-bottom:.06em}
+.mega .line>span{display:block;transform:translateY(105%);transition:transform .95s cubic-bezier(.16,.9,.24,1)}
+.problem-panel.visible .mega .line>span{transform:none}
+.problem-panel.visible .mega .line.alt>span{transition-delay:.14s}
+.mega .line.alt{color:var(--amber2)}
+.problem-body{display:grid;grid-template-columns:1fr 1.15fr;gap:70px;align-items:start;border-top:1px solid var(--line);padding-top:42px}
+.problem-body>p{margin:0;font-size:19px;color:var(--muted);max-width:42ch}
+.problem .pain-list{border-left:0;padding-left:0;display:grid;gap:0}
+.problem .pain-list div{align-items:baseline;padding:18px 0}
+.problem .pain-list div:last-child{border-bottom:0}
+.problem .pain-list span{font-size:13px;font-weight:750;letter-spacing:.08em;min-width:26px}
+.problem .pain-list p{font-size:17px}
+@media(prefers-reduced-motion:reduce){.mega .line>span{transform:none;transition:none}}
+@media(max-width:900px){.problem-head{margin-bottom:42px}.problem-body{grid-template-columns:1fr;gap:34px;padding-top:32px}.problem h2.mega{max-width:none}}
+.problem h2.mega{font-size:clamp(32px,5.6vw,80px);max-width:17ch}
